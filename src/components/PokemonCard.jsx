@@ -9,13 +9,13 @@ const Card = styled.div`
 
 const Button = styled.button``;
 
-function PokemonCard({ id, name, img, type, description }) {
+function PokemonCard({ id, name, img, type, description, onAdd }) {
   return (
     <Card>
       <img src={img} />
       <span>{name}</span>
       <span>No. {id}</span>
-      <Button>추가</Button>
+      <Button onClick={onAdd}>추가</Button>
     </Card>
   );
 }

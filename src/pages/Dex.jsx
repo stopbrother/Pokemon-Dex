@@ -12,16 +12,21 @@ const Wrapper = styled.div`
 `;
 
 function Dex() {
-  // const [selectedPokemon, setSelectedPokemon] = useState(MOCK_DATA);
+  const [selectedPokemon, setSelectedPokemon] = useState([]);
 
-  // const addPokemon = (pokemon) => {};
+  const addPokemon = (pokemon) => {
+    setSelectedPokemon((prevSelectedPokemon) => [
+      ...prevSelectedPokemon,
+      pokemon,
+    ]);
+  };
 
   // const removePokemon = (pokemon) => {};
 
   return (
     <Wrapper>
-      <Dashboard />
-      <PokemonList pokemonList={MOCK_DATA} />
+      <Dashboard selectedPokemon={selectedPokemon} />
+      <PokemonList pokemonList={MOCK_DATA} onAdd={addPokemon} />
     </Wrapper>
   );
 }

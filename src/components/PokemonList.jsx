@@ -8,7 +8,7 @@ const ListContainer = styled.div`
   background-color: gray;
 `;
 
-function PokemonList({ pokemonList }) {
+function PokemonList({ pokemonList, onAdd }) {
   return (
     <ListContainer>
       {pokemonList.map((pokemon) => (
@@ -19,6 +19,7 @@ function PokemonList({ pokemonList }) {
           name={pokemon.korean_name}
           type={pokemon.types}
           description={pokemon.description}
+          onAdd={() => onAdd(pokemon)}
         />
       ))}
     </ListContainer>
