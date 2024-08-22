@@ -8,10 +8,19 @@ const ListContainer = styled.div`
   background-color: gray;
 `;
 
-function PokemonList() {
+function PokemonList({ pokemonList }) {
   return (
     <ListContainer>
-      <PokemonCard></PokemonCard>
+      {pokemonList.map((pokemon) => (
+        <PokemonCard
+          key={pokemon.id}
+          id={pokemon.id}
+          img={pokemon.img_url}
+          name={pokemon.korean_name}
+          type={pokemon.types}
+          description={pokemon.description}
+        />
+      ))}
     </ListContainer>
   );
 }
