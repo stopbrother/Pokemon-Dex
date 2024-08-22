@@ -21,11 +21,15 @@ function Dex() {
     ]);
   };
 
-  // const removePokemon = (pokemon) => {};
+  const removePokemon = (selectedPokemon) => {
+    setSelectedPokemon((prevSelectedPokemon) =>
+      prevSelectedPokemon.filter((pokemon) => pokemon.id !== selectedPokemon.id)
+    );
+  };
 
   return (
     <Wrapper>
-      <Dashboard selectedPokemon={selectedPokemon} />
+      <Dashboard selectedPokemon={selectedPokemon} onRemove={removePokemon} />
       <PokemonList pokemonList={MOCK_DATA} onAdd={addPokemon} />
     </Wrapper>
   );

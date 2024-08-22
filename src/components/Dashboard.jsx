@@ -9,8 +9,7 @@ const DashboardContainer = styled.div`
   padding-bottom: 20px;
 `;
 
-function Dashboard({ selectedPokemon }) {
-  console.table("selectedPokemon", selectedPokemon);
+function Dashboard({ selectedPokemon, onRemove }) {
   return (
     <DashboardContainer>
       <h2 className="dashboard-title">나만의 포켓몬</h2>
@@ -21,6 +20,8 @@ function Dashboard({ selectedPokemon }) {
               <img src={pokemon.img_url} alt="" />
             </div>
             <span>{pokemon.korean_name}</span>
+            <span>No. {pokemon.id}</span>
+            <button onClick={() => onRemove(pokemon)}>삭제</button>
           </li>
         ))}
       </ul>
