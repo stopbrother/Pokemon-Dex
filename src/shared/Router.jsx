@@ -13,7 +13,7 @@ function Router() {
             element는 이동했을때 보여주고자 하는 컴포넌트 */}
         <Route path="/" element={<Home />} />
         <Route path="dex" element={<Dex />} />
-        <Route path="detail" element={<Detail />} />
+        <Route path="detail/:id" element={<Detail />} />
       </Routes>
     </BrowserRouter>
   );

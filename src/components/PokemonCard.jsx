@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Card = styled.div`
@@ -12,9 +13,11 @@ const Button = styled.button``;
 function PokemonCard({ id, name, img, type, description, onAdd }) {
   return (
     <Card>
-      <img src={img} />
-      <span>{name}</span>
-      <span>No. {id}</span>
+      <Link to={`/detail/${id}`}>
+        <img src={img} />
+        <span>{name}</span>
+        <span>No. {id}</span>
+      </Link>
       <Button onClick={onAdd}>추가</Button>
     </Card>
   );
