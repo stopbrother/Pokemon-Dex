@@ -23,7 +23,7 @@ function Dex() {
 
   const removePokemon = (selectedPokemon) => {
     setSelectedPokemon((prevSelectedPokemon) =>
-      prevSelectedPokemon.filter((pokemon) => pokemon.id !== selectedPokemon.id)
+      prevSelectedPokemon.filter((pokemon) => pokemon.id !== selectedPokemon)
     );
   };
 
