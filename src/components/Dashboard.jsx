@@ -21,7 +21,7 @@ function Dashboard({ selectedPokemon, onRemove }) {
             </div>
             <span>{pokemon.korean_name}</span>
             <span>No. {pokemon.id}</span>
-            <button onClick={() => onRemove(pokemon)}>삭제</button>
+            <button onClick={() => onRemove(pokemon.id)}>삭제</button>
           </li>
         ))}
       </ul>
