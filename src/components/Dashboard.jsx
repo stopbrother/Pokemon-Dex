@@ -5,15 +5,32 @@ const DashboardContainer = styled.div`
   display: flex;
   text-align: center;
   flex-direction: column;
-  background-color: gray;
+  background-color: whitesmoke;
   padding-bottom: 20px;
+`;
+const DashboardTitle = styled.h1`
+  padding: 20px;
+  color: red;
+  font-size: 1.5rem;
+  font-weight: 600;
+`;
+const DashboardItems = styled.ul`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+`;
+const BlankPokemonImg = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 
 function Dashboard({ selectedPokemon, onRemove }) {
   return (
     <DashboardContainer>
-      <h2 className="dashboard-title">나만의 포켓몬</h2>
-      <ul className="selected-items">
+      <DashboardTitle>나만의 포켓몬</DashboardTitle>
+      <DashboardItems>
         {selectedPokemon.map((pokemon) => (
           <li key={pokemon.id}>
             <div>
@@ -24,7 +41,7 @@ function Dashboard({ selectedPokemon, onRemove }) {
             <button onClick={() => onRemove(pokemon.id)}>삭제</button>
           </li>
         ))}
-      </ul>
+      </DashboardItems>
     </DashboardContainer>
   );
 }

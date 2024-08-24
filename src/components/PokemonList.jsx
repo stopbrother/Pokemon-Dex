@@ -5,7 +5,8 @@ import PokemonCard from "./PokemonCard";
 const ListContainer = styled.div`
   display: flex;
   margin-top: 20px;
-  background-color: gray;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 function PokemonList({ pokemonList, onAdd }) {
