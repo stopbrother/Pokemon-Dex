@@ -25,7 +25,7 @@ const DashboardItems = styled.ul`
 
 function Dashboard() {
   const { selectedPokemon, removePokemon } = useContext(PokemonContext);
-  console.log(selectedPokemon);
+
   return (
     <DashboardContainer>
       <DashboardTitle>나만의 포켓몬</DashboardTitle>
