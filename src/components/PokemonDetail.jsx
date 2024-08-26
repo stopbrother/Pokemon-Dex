@@ -14,7 +14,7 @@ function PokemonDetail() {
     <div>
       <img src={detail.img_url} />
       <h3>{detail.korean_name}</h3>
-      <p>타입: {detail.types}</p>
+      <p>타입: {detail.types.join(", ")}</p>
       <span>{detail.description}</span>
       <button onClick={onBackButtonHandler}>뒤로 가기</button>
     </div>
