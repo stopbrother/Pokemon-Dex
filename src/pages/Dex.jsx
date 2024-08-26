@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
+
 import PokemonList from "../components/PokemonList";
 import Dashboard from "../components/Dashboard";
-import PokemonCard from "../components/PokemonCard";
+
 import styled from "styled-components";
 import MOCK_DATA from "../mock";
+
+import { PokemonContext } from "../context/PokemonContext";
 
 const Wrapper = styled.div`
   min-width: 320px;
@@ -12,6 +14,7 @@ const Wrapper = styled.div`
 
 function Dex() {
   const [selectedPokemon, setSelectedPokemon] = useState([]);
+  const pokemonDataList = MOCK_DATA;
 
   const addPokemon = (pokemon) => {
     const selectedCheck = selectedPokemon.some(
@@ -38,8 +41,12 @@ function Dex() {
 
   return (
     <Wrapper>
-      <Dashboard selectedPokemon={selectedPokemon} onRemove={removePokemon} />
-      <PokemonList pokemonList={MOCK_DATA} onAdd={addPokemon} />
+      <PokemonContext.Provider
+        value={{ selectedPokemon, removePokemon, addPokemon, pokemonDataList }}
+      >
+        <Dashboard />
+        <PokemonList />
+      </PokemonContext.Provider>
     </Wrapper>
   );
 }

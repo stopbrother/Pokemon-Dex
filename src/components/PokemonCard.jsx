@@ -1,6 +1,7 @@
-import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { PokemonContext } from "../context/PokemonContext";
 
 const Card = styled.div`
   width: 25%;
@@ -27,15 +28,17 @@ const CardNumber = styled.span`
 
 const Button = styled.button``;
 
-function PokemonCard({ id, name, img, type, description, onAdd }) {
+function PokemonCard({ pokemon }) {
+  const { addPokemon } = useContext(PokemonContext);
+
   return (
     <Card>
-      <Link to={`/detail/${id}`}>
-        <CardImg src={img} />
-        <CardName>{name}</CardName>
-        <CardNumber>No. {id}</CardNumber>
+      <Link to={`/detail/${pokemon.id}`}>
+        <CardImg src={pokemon.img_url} />
+        <CardName>{pokemon.korean_name}</CardName>
+        <CardNumber>No. {pokemon.id}</CardNumber>
       </Link>
-      <Button onClick={onAdd}>추가</Button>
+      <Button onClick={() => addPokemon(pokemon)}>추가</Button>
     </Card>
   );
 }

@@ -1,5 +1,6 @@
-import React from "react";
+import { useContext } from "react";
 import styled from "styled-components";
+import { PokemonContext } from "../context/PokemonContext";
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -21,27 +22,29 @@ const DashboardItems = styled.ul`
   align-items: center;
   gap: 10px;
 `;
-const BlankPokemonImg = styled.img`
-  width: 100%;
-  height: 100%;
-`;
 
-function Dashboard({ selectedPokemon, onRemove }) {
+function Dashboard() {
+  const { selectedPokemon, removePokemon } = useContext(PokemonContext);
+  console.log(selectedPokemon);
   return (
     <DashboardContainer>
       <DashboardTitle>나만의 포켓몬</DashboardTitle>
-      <DashboardItems>
-        {selectedPokemon.map((pokemon) => (
-          <li key={pokemon.id}>
-            <div>
-              <img src={pokemon.img_url} alt="" />
-            </div>
-            <span>{pokemon.korean_name}</span>
-            <span>No. {pokemon.id}</span>
-            <button onClick={() => onRemove(pokemon.id)}>삭제</button>
-          </li>
-        ))}
-      </DashboardItems>
+      {selectedPokemon.length === 0 ? (
+        <p>선택된 포켓몬이 없습니다.</p>
+      ) : (
+        <DashboardItems>
+          {selectedPokemon.map((pokemon) => (
+            <li key={pokemon.id}>
+              <div>
+                <img src={pokemon.img_url} alt="" />
+              </div>
+              <span>{pokemon.korean_name}</span>
+              <span>No. {pokemon.id}</span>
+              <button onClick={() => removePokemon(pokemon.id)}>삭제</button>
+            </li>
+          ))}
+        </DashboardItems>
+      )}
     </DashboardContainer>
   );
 }
