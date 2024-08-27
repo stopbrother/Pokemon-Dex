@@ -1,6 +1,19 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import pokemonLogo from "../assets/pokemonLogo.png";
+
+function Home() {
+  const navigate = useNavigate();
+
+  return (
+    <Main>
+      <Image src={pokemonLogo} />
+      <Button onClick={() => navigate("/dex")}>포켓몬 도감 시작하기</Button>
+    </Main>
+  );
+}
+
+export default Home;
 
 const Main = styled.div`
   display: flex;
@@ -11,15 +24,18 @@ const Main = styled.div`
   width: 100%;
 `;
 
-function Home() {
-  const navigate = useNavigate();
+const Image = styled.img`
+  width: 500px;
+`;
 
-  return (
-    <Main>
-      <h1>포켓몬 도감</h1>
-      <button onClick={() => navigate("/dex")}>포켓몬 도감 시작하기</button>
-    </Main>
-  );
-}
-
-export default Home;
+const Button = styled.button`
+  padding: 10px;
+  background-color: #fd5858;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  &:hover {
+    background-color: red;
+  }
+`;
