@@ -13,7 +13,9 @@ function PokemonDetail() {
 
   return (
     <Section>
-      <img src={detail.img_url} />
+      <ImgBox>
+        <img src={detail.img_url} />
+      </ImgBox>
       <Title>{detail.korean_name}</Title>
       <Info>타입: {detail.types.join(", ")}</Info>
       <span>{detail.description}</span>
@@ -28,6 +30,14 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+`;
+const ImgBox = styled.div`
+  height: 200px;
+  & img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
 `;
 const Title = styled.h1`
   font-size: 1.5rem;
