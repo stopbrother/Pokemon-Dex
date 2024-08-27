@@ -17,11 +17,10 @@ export default Home;
 
 const Main = styled.div`
   display: flex;
+  height: 100vh;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  width: 100%;
 `;
 
 const Image = styled.img`
@@ -35,6 +34,7 @@ const Button = styled.button`
   border: none;
   border-radius: 7px;
   cursor: pointer;
+  width: 50%;
   &:hover {
     background-color: red;
   }

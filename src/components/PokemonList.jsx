@@ -8,6 +8,7 @@ const ListContainer = styled.div`
   margin-top: 20px;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 1rem;
 `;
 
 function PokemonList() {
